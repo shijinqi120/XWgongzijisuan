@@ -1,0 +1,33 @@
+// 格式化数字，保留指定位数的小数
+var formatNumber = function(num, digits) {
+  if (typeof num !== 'number') {
+    return '0';
+  }
+  return num.toFixed(digits || 2);
+};
+
+// 格式化时间为 00:00:00.000 格式
+var formatTime = function(milliseconds) {
+  if (typeof milliseconds !== 'number') {
+    return '00:00:00.000';
+  }
+  
+  // 计算小时、分钟、秒和毫秒
+  var hours = Math.floor(milliseconds / (1000 * 60 * 60));
+  var minutes = Math.floor((milliseconds % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((milliseconds % (1000 * 60)) / 1000);
+  var ms = milliseconds % 1000;
+  
+  // 补零
+  var formatHours = hours < 10 ? '0' + hours : '' + hours;
+  var formatMinutes = minutes < 10 ? '0' + minutes : '' + minutes;
+  var formatSeconds = seconds < 10 ? '0' + seconds : '' + seconds;
+  var formatMs = ms < 10 ? '00' + ms : (ms < 100 ? '0' + ms : '' + ms);
+  
+  return formatHours + ':' + formatMinutes + ':' + formatSeconds + '.' + formatMs;
+};
+
+module.exports = {
+  formatNumber: formatNumber,
+  formatTime: formatTime
+};

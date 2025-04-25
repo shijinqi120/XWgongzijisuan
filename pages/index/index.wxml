@@ -1,0 +1,80 @@
+<view class="container">
+  <view class="header">
+    <text class="header-title">智能工薪计算系统</text>
+  </view>
+  
+  <view class="form-section">
+    <view class="form-group">
+      <text class="form-label">基本工资</text>
+      <input class="form-input" type="digit" placeholder="请输入基本工资" bindinput="inputBaseSalary" value="{{baseSalary}}"/>
+    </view>
+    
+    <view class="form-row">
+      <view class="form-group">
+        <text class="form-label">加班小时数</text>
+        <input class="form-input" type="digit" placeholder="加班时长" bindinput="inputOvertimeHours" value="{{overtimeHours}}"/>
+      </view>
+      <view class="form-group">
+        <text class="form-label">加班费率</text>
+        <input class="form-input" type="digit" placeholder="加班费率" bindinput="inputOvertimeRate" value="{{overtimeRate}}"/>
+      </view>
+    </view>
+    
+    <view class="form-group">
+      <text class="form-label">绩效奖金</text>
+      <input class="form-input" type="digit" placeholder="请输入绩效奖金" bindinput="inputBonus" value="{{bonus}}"/>
+    </view>
+    
+    <view class="form-group">
+      <text class="form-label">社保个人缴纳比例(%)</text>
+      <input class="form-input" type="digit" placeholder="社保个人缴纳比例" bindinput="inputInsuranceRate" value="{{insuranceRate}}"/>
+    </view>
+    
+    <view class="form-group">
+      <text class="form-label">个税起征点</text>
+      <input class="form-input" type="digit" placeholder="个税起征点" bindinput="inputTaxThreshold" value="{{taxThreshold}}"/>
+    </view>
+    
+    <button class="btn-calculate" bindtap="calculateSalary">计算工资</button>
+    <button class="btn-reset" bindtap="resetForm">重置</button>
+  </view>
+  
+  <view class="result-section" wx:if="{{showResult}}">
+    <view class="result-title">工资计算结果</view>
+    
+    <view class="result-item">
+      <text class="result-label">基本工资</text>
+      <text class="result-value">¥ {{baseSalary}}</text>
+    </view>
+    
+    <view class="result-item">
+      <text class="result-label">加班费</text>
+      <text class="result-value">¥ {{overtimePay}}</text>
+    </view>
+    
+    <view class="result-item">
+      <text class="result-label">绩效奖金</text>
+      <text class="result-value">¥ {{bonus}}</text>
+    </view>
+    
+    <view class="result-item">
+      <text class="result-label">社保个人缴纳</text>
+      <text class="result-value">¥ {{insurance}}</text>
+    </view>
+    
+    <view class="result-item">
+      <text class="result-label">应纳税所得额</text>
+      <text class="result-value">¥ {{taxableIncome}}</text>
+    </view>
+    
+    <view class="result-item">
+      <text class="result-label">个人所得税</text>
+      <text class="result-value">¥ {{tax}}</text>
+    </view>
+    
+    <view class="result-total">
+      <text class="result-total-label">实发工资</text>
+      <text class="result-total-value">¥ {{netSalary}}</text>
+    </view>
+  </view>
+</view>

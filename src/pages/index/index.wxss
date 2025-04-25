@@ -1,0 +1,195 @@
+/* Apple 风格的CSS */
+page {
+  --ios-background: #f2f2f7;
+  --ios-card-bg: #ffffff;
+  --ios-primary: #007aff;
+  --ios-success: #34c759;
+  --ios-warning: #ff9500;
+  --ios-danger: #ff3b30;
+  --ios-gray: #8e8e93;
+  --ios-text: #000000;
+  --ios-text-secondary: #6d6d72;
+  --ios-border: rgba(60, 60, 67, 0.1);
+  --ios-radius: 16rpx;
+  
+  background-color: var(--ios-background);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  color: var(--ios-text);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* 容器 */
+.ios-container {
+  display: flex;
+  flex-direction: column;
+  padding: 24rpx;
+  box-sizing: border-box;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* 页面标题 */
+.ios-header {
+  text-align: center;
+  margin-bottom: 30rpx;
+  padding: 20rpx 0;
+}
+
+.ios-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: var(--ios-text);
+}
+
+/* 卡片通用样式 */
+.ios-card {
+  background-color: var(--ios-card-bg);
+  border-radius: var(--ios-radius);
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  padding: 24rpx;
+  margin-bottom: .8rem;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.ios-card-header {
+  margin-bottom: 16rpx;
+}
+
+.ios-card-label {
+  font-size: 14px;
+  color: var(--ios-text-secondary);
+  font-weight: 500;
+}
+
+/* 收入卡片 */
+.ios-earnings-card {
+  background: linear-gradient(135deg, var(--ios-card-bg) 0%, #f8f8fa 100%);
+}
+
+.ios-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.ios-amount {
+  font-size: 64rpx;
+  font-weight: 700;
+  color: var(--ios-primary);
+}
+
+/* 时间卡片 */
+.ios-time-card {
+  background: linear-gradient(135deg, var(--ios-card-bg) 0%, #f5f5f7 100%);
+}
+
+.ios-time-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.ios-time-value {
+  font-size: 40rpx;
+  font-weight: 500;
+  color: var(--ios-text);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1rpx;
+}
+
+/* 输入区域 */
+.ios-input-card {
+  background: linear-gradient(135deg, var(--ios-card-bg) 0%, #fafafa 100%);
+}
+
+.ios-input-wrapper {
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid var(--ios-border);
+  padding: 12rpx 0;
+}
+
+.ios-input {
+  flex: 1;
+  font-size: 36rpx;
+  height: 80rpx;
+  padding: 0 12rpx;
+  color: var(--ios-text);
+}
+
+.ios-input-unit {
+  font-size: 28rpx;
+  color: var(--ios-text-secondary);
+  margin-left: 12rpx;
+}
+
+/* 按钮区域 */
+.ios-control-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  margin: 30rpx 0;
+}
+
+.ios-button {
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  padding: 0;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.ios-button-start {
+  background-color: var(--ios-success);
+  color: white;
+}
+
+.ios-button-stop {
+  background-color: var(--ios-warning);
+  color: white;
+}
+
+.ios-button-reset {
+  background-color: var(--ios-gray);
+  color: white;
+  margin-top: 12rpx;
+}
+
+/* 底部文字 */
+.ios-footer {
+  margin-top: auto;
+  padding: 30rpx 0;
+  text-align: center;
+}
+
+.ios-footer-text {
+  font-size: 24rpx;
+  color: var(--ios-text-secondary);
+}
+
+/* 适配不同机型的安全区域 */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .ios-container {
+    padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
+  }
+}
+
+/* 暗黑模式支持 */
+@media (prefers-color-scheme: dark) {
+  page {
+    --ios-background: #000000;
+    --ios-card-bg: #1c1c1e;
+    --ios-text: #ffffff;
+    --ios-text-secondary: #8e8e93;
+    --ios-border: rgba(255, 255, 255, 0.2);
+  }
+}

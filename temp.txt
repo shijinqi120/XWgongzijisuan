@@ -1,0 +1,1 @@
+<text class="ios-time-value">{{formatTime}}</text>

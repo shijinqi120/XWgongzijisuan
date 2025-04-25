@@ -1,0 +1,51 @@
+<view class="ios-container">
+  <!-- 页面标题 -->
+  <view class="ios-header">
+    <text class="ios-title">智能工薪计算器</text>
+  </view>
+
+  <!-- 主面板 - 展示收入 -->
+  <view class="ios-card ios-earnings-card">
+    <view class="ios-card-header">
+      <text class="ios-card-label">当前已赚取</text>
+    </view>
+    <view class="ios-card-content">
+      <text class="ios-amount">¥ {{earned}}</text>
+    </view>
+  </view>
+
+  <!-- 时间显示卡片 -->
+  <view class="ios-card ios-time-card">
+    <view class="ios-card-header">
+      <text class="ios-card-label">已工作时间</text>
+    </view>
+    <view class="ios-time-display">
+      <text class="ios-time-value">{{timeElapsed < 3600000 ? "" : Math.floor(timeElapsed/3600000) + "小时"}} {{Math.floor((timeElapsed%3600000)/60000) + "分"}} {{Math.floor((timeElapsed%60000)/1000) + "秒"}}</text>
+    </view>
+  </view>
+
+  <!-- 月薪输入区 -->
+  <view class="ios-card ios-input-card">
+    <view class="ios-card-header">
+      <text class="ios-card-label">月薪设置</text>
+    </view>
+    <view class="ios-input-wrapper">
+      <input class="ios-input" type="digit" value="{{salary}}" bindinput="onSalaryInput" />
+      <text class="ios-input-unit">元/月</text>
+    </view>
+  </view>
+
+  <!-- 控制按钮区 -->
+  <view class="ios-control-area">
+    <button class="ios-button {{isRunning ? 'ios-button-stop' : 'ios-button-start'}}" 
+            bindtap="{{isRunning ? 'stopTimer' : 'startTimer'}}">
+      {{isRunning ? "暂停计时" : "开始计时"}}
+    </button>
+    <button class="ios-button ios-button-reset" bindtap="resetTimer">重置</button>
+  </view>
+
+  <!-- 底部提示 -->
+  <view class="ios-footer">
+    <text class="ios-footer-text">每工作一小时，薪资自动累计</text>
+  </view>
+</view>
